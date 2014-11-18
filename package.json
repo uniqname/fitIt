@@ -1,0 +1,26 @@
+{
+  "name": "fitit",
+  "version": "1.0.0",
+  "description": "Tool for making iframes, objects, etc. responsive. AKA FitVids without the jQuery dependency",
+  "main": "fitit.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uniqname/fitIt.git"
+  },
+  "keywords": [
+    "fitvids",
+    "responsive",
+    "iframe",
+    "object",
+    "embed"
+  ],
+  "author": "Cory Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uniqname/fitIt/issues"
+  },
+  "homepage": "https://github.com/uniqname/fitIt"
+}

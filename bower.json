@@ -1,0 +1,28 @@
+{
+  "name": "fitit",
+  "main": "fitit.js",
+  "version": "1.0.0",
+  "authors": [
+    "Cory Brown <oh.wise.man@gmail.com>"
+  ],
+  "description": "Tool for making iframes, objects, etc. responsive. AKA FitVids without the jQuery dependency",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "fitvids",
+    "responsive",
+    "iframe",
+    "object",
+    "embed"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/uniqname/fitIt.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

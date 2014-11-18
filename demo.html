@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitIt Demo</title>
+    <script src="fitit.js"></script>
+    <script>
+
+        fitIt('[src*="youtube.com"]');
+        setTimeout(function () {
+            var i = document.createElement('iframe');
+            i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
+            document.body.appendChild(i);
+        }, 5000);
+    </script>
+</head>
+<body>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/MG9-y2t2ZLI" frameborder="0" allowfullscreen></iframe>
+</body>
+</html>
