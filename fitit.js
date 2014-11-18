@@ -34,10 +34,10 @@ Usage: fitIt(<selector>)
             vid.removeAttribute('height');
             resize(vid);
         },
-        fitIt = function (selector) {
+        fitIt = function (selector, root) {
             var observer,
                 ready = false;
-            
+            root = root || document.documentElement;
             if (document.readyState === 'complete' || document.readyState === 'loaded') {
                 [].slice.call(document.querySelectorAll(selector)).forEach(initVid);
             } else {
@@ -65,7 +65,7 @@ Usage: fitIt(<selector>)
                 });
             });
 
-            observer.observe(document.documentElement, {subtree: true, childList: true});
+            observer.observe(root, {subtree: true, childList: true});
         };
   
     window.fitIt = fitIt;
