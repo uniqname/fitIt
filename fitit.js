@@ -28,6 +28,7 @@ Usage: fitIt(<selector>)
                 height = parseInt(styles.height, 10),
                 ratio = width/height;
 
+            vid.onload = function () { console.log('vid loaded', vid);};
             vid.dataset.ratio = ratio;
             vid.style.width = '100%';
             vid.removeAttribute('width');
