@@ -38,20 +38,6 @@ gulp.task('start-server', function () {
             baseDir: "./"
         }
 	});
-	// exec('http-server', function (err, stdout, stderr) {
-
-	// 	if (err !== null) {
-	// 		console.error('There was an error trying to run http-server.');
-	// 		console.error('Use `npm install http-server -g` to install');
-	// 	} else {
-	// 		if (stdout) {
-	// 			console.log(stdout);
-	// 		}
-	// 		if (stderr) {
-	// 			console.log(stderr);
-	// 		}
-	// 	}
-	// });
 });
 
 gulp.task('default', ['build', 'start-server']);
