@@ -7,7 +7,24 @@ Usage: fitIt(<selector>)
 
 (function () {
     'use strict';
-    var matches = function (el, selector) {
+    var fitSelectors = [],
+
+        // We create a single observer that will check agains a list of
+        // selectors whenever nodes are added.
+        observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    [].slice.call(mutation.addedNodes).forEach(function (node) {
+                        fitSelectors.forEach(function (selector) {
+                            if (matches(node, selector)) {
+                                initVid(node);
+                            }
+                        });
+                    });
+                }
+            });
+        }),
+        matches = function (el, selector) {
             var matchesMethod = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'].filter(function (method) {
                 return !!el[method];
             })[0];
@@ -28,22 +45,26 @@ Usage: fitIt(<selector>)
                 height = parseInt(styles.height, 10),
                 ratio = width/height;
 
-            vid.onload = function () { console.log('vid loaded', vid);};
+            // vid.onload = function () { console.log('vid loaded', vid);};
             vid.dataset.ratio = ratio;
             vid.style.width = '100%';
+            console.log('removing width from ', vid.nodeName, vid);
             vid.removeAttribute('width');
             vid.removeAttribute('height');
             resize(vid);
         },
-        fitIt = function (selector, root) {
-            var observer,
-                ready = false;
-            root = root || document.documentElement;
-            if (document.readyState === 'complete' || document.readyState === 'loaded') {
+        fitIt = function (selector) {
+            var ready = function () {
+                    return (document.readyState === 'interactive' || document.readyState === 'complete' || document.readyState === 'loaded');
+                };
+
+            fitSelectors.push(selector);
+            
+            if (ready()) {
                 [].slice.call(document.querySelectorAll(selector)).forEach(initVid);
             } else {
                 document.addEventListener('readystatechange', function () {
-                  if (document.readyState === 'complete' || document.readyState === 'loaded') {
+                  if (ready()) {
                     [].slice.call(document.querySelectorAll(selector)).forEach(initVid);
                   }
                 });
@@ -52,22 +73,10 @@ Usage: fitIt(<selector>)
             window.addEventListener('resize', function () {
                 //This should be more optimized.
                 [].slice.call(document.querySelectorAll(selector)).forEach(resize);
-            });
-          
-            observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.addedNodes.length) {
-                        [].slice.call(mutation.addedNodes).forEach(function (node) {
-                            if (matches(node, selector)) {
-                                initVid(node);
-                            }
-                        });
-                    }
-                });
-            });
-
-            observer.observe(root, {subtree: true, childList: true});
+            });   
         };
+        
+        observer.observe(document.documentElement, {subtree: true, childList: true});
   
     window.fitIt = fitIt;
 })();
