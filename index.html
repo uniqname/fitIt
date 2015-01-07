@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Fitit : Tool to make embedded iframes, object, etc become responsive. AKA FitVids without the jQuery dependency.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Fitit</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/uniqname/fitIt">View on GitHub</a>
+
+          <h1 id="project_title">Fitit</h1>
+          <h2 id="project_tagline">Tool to make embedded iframes, object, etc become responsive. AKA FitVids without the jQuery dependency.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/uniqname/fitIt/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/uniqname/fitIt/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="fitit" class="anchor" href="#fitit" aria-hidden="true"><span class="octicon octicon-link"></span></a>fitIt</h1>
+
+<p>A dependancy free, utra-slim tool for fluid width video (and other) embeds.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<pre><code>fitIt(&lt;selector&gt;)
+</code></pre>
+
+<p>All elements that match the <code>selector</code> will be made responsive and full width within it's container...</p>
+
+<pre><code>fitIt('[src*="youtube.com"]');
+</code></pre>
+
+
+
+
+
+<hr>
+
+<p>Including any asynchronously loaded nodes</p>
+
+<pre><code>fitIt('[src*="youtube.com"]');
+
+document.querySelector('.async-demo\_\_btn').addEventListener('click', function (clickEvt) {
+
+    var container = clickEvt.target.parentElement,
+        i = document.createElement('iframe');
+
+    i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
+    container.appendChild(i);
+    container.removeChild(clickEvt.target);
+});
+</code></pre>
+
+
+Load Video
+
+
+<hr>
+
+<p>Multiple selectors can be used...</p>
+
+<pre><code>fitIt('[src*="youtube.com"], [src*="player.vimeo.com"]');
+</code></pre>
+
+
+
+
+
+<hr>
+
+<p>Even multiple calls.</p>
+
+<pre><code>fitIt('[src*="youtube.com"]');
+fitIt('object embed'); 
+</code></pre>
+
+
+
+
+
+<hr>
+
+<p>Before the iframe...</p>
+
+<pre><code>&lt;script&gt;
+fitIt('[src*="youtube.com"], [src*="player.vimeo.com"]');
+&lt;/script&gt;
+
+&lt;iframe width="560" height="315" src="//www.youtube.com/embed/MG9-y2t2ZLI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+</code></pre>
+
+<hr>
+
+<p>or after the iframe...</p>
+
+<pre><code>&lt;object data="" type=""&gt;
+    &lt;embed src="" type=""&gt;&lt;/embed&gt;
+&lt;/object&gt;
+
+&lt;script&gt;
+fitIt('object embed');
+&lt;/script&gt;
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Fitit maintained by <a href="https://github.com/uniqname">uniqname</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
