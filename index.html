@@ -57,7 +57,7 @@
 
 <pre><code>fitIt('[src*="youtube.com"]');
 
-document.querySelector('.async-demo\_\_btn').addEventListener('click', function (clickEvt) {
+document.querySelector('.async-demo__btn').addEventListener('click', function (clickEvt) {
 
     var container = clickEvt.target.parentElement,
         i = document.createElement('iframe');
@@ -73,6 +73,17 @@ document.querySelector('.async-demo\_\_btn').addEventListener('click', function 
 <button class="async-demo__btn">Load Video</button>
 </figure>
 
+<script>
+document.querySelector('.async-demo__btn').addEventListener('click', function (clickEvt) {
+
+    var container = clickEvt.target.parentElement,
+        i = document.createElement('iframe');
+
+    i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
+    container.appendChild(i);
+    container.removeChild(clickEvt.target);
+});
+</script>
 
 <hr>
 
@@ -145,17 +156,20 @@ fitIt('object embed');
       </footer>
     </div>
 
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-58345706-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-58345706-1");
+    pageTracker._trackPageview();
+    } catch(err) {}
+    </script>
 
-
+    <script src="//rawgit.com/uniqname/fitIt/master/fitit.js"></script>
+    <script>
+      fitIt('iframe, object');
+    </script>
   </body>
 </html>
