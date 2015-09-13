@@ -1,0 +1,43 @@
+{
+  "name": "fitit",
+  "version": "1.1.1",
+  "description": "Tool for making iframes, objects, etc. responsive. AKA FitVids without the jQuery dependency",
+  "main": "./dist/fitit.min.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uniqname/fitIt.git"
+  },
+  "keywords": [
+    "fitvids",
+    "responsive",
+    "iframe",
+    "object",
+    "embed"
+  ],
+  "author": "Cory Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uniqname/fitIt/issues"
+  },
+  "homepage": "https://github.com/uniqname/fitIt",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.3",
+    "browserify": "^11.1.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-data": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-streamify": "^1.0.2",
+    "gulp-template": "^3.0.0",
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.6",
+    "marked": "^0.3.5",
+    "q": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

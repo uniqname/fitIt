@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FitIt Demo and Docs</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/monokai.min.css">
+        <style>
+            body {
+                padding: 2em;
+                font-family: Helvetica, sans;
+            }
+            pre code,
+            .hljs {
+                padding: 2em;
+                margin: 2em 0;
+            }
+
+            .demo {
+                padding: 0;
+                margin: 2em 0;
+                position: relative;
+                background: #ddd;
+            }
+
+            .demo:before {
+                content: "DEMO";
+                color: #ccc;
+                position: absolute;
+                top: .25em;
+                left: .25em;
+                font-family: impact, slab-serif;
+                font-size: 1em;
+            }
+            .async-demo {
+                background-color: #f9f9f9;
+                padding: 2em;
+            }
+
+            .async-demo__btn {
+                background: hsl(200, 100%, 50%);
+                padding: .5em;
+                border-radius: 0;
+                border: 1px solid hsl(200, 80%, 50%);
+                color: hsl(200, 100%, 90%);
+                font-size: 2em;
+            }
+        </style>
+        <script src="dist/fitit.js"></script>
+        <script>
+            fitIt('[src*="youtube.com"], [src*="player.vimeo.com"]');
+        </script>
+    </head>
+    <body>
+        <%= content %>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <script>
+            hljs.configure({
+                languages: ['js','html']
+            });
+            hljs.initHighlightingOnLoad();
+        </script>
+        <script>
+            [].slice.call(document.querySelectorAll('.async-demo__btn')).forEach(function (btn) {
+                btn.addEventListener('click', function (clickEvt) {
+
+                    var container = clickEvt.target.parentElement,
+                        i = document.createElement('iframe');
+
+                    i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
+                    container.appendChild(i);
+                    container.removeChild(clickEvt.target);
+                });
+            })
+        </script>
+        <script>
+            fitIt('embed');
+        </script>
+        <script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='//HOST:3000/browser-sync/browser-sync-client.1.7.0.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+//]]></script>
+    </body>
+</html>
