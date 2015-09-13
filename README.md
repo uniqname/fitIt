@@ -25,12 +25,12 @@ Including any asynchronously loaded nodes
 
 ```javascript
     fitIt('[src*="youtube.com"]');
-    
-    document.querySelector('.async-demo\_\_btn').addEventListener('click', function (clickEvt) {
+
+    document.querySelector('.async-demo__btn').addEventListener('click', function (clickEvt) {
 
         var container = clickEvt.target.parentElement,
             i = document.createElement('iframe');
-        
+
         i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
         container.appendChild(i);
         container.removeChild(clickEvt.target);
@@ -61,7 +61,7 @@ Even multiple calls.
 
 ```javascript
     fitIt('[src*="youtube.com"]');
-    fitIt('object embed'); 
+    fitIt('object embed');
 ```
 
 <figure class="async-demo demo">
@@ -71,26 +71,26 @@ Even multiple calls.
 ___
 
 
-Before the iframe...
+Before the element...
 
 ```html
     <script>
     fitIt('[src*="youtube.com"], [src*="player.vimeo.com"]');
     </script>
-    
+
     <iframe width="560" height="315" src="//www.youtube.com/embed/MG9-y2t2ZLI" frameborder="0" allowfullscreen></iframe>
 ```
 
 ___
 
 
-or after the iframe...
+or after it...
 
 ```html
     <object data="" type="">
         <embed src="" type=""></embed>
     </object>
-    
+
     <script>
     fitIt('object embed');
     </script>

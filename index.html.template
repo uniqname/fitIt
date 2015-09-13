@@ -44,7 +44,7 @@
                 font-size: 2em;
             }
         </style>
-        <script src="fitit.js"></script>
+        <script src="dist/fitit.js"></script>
         <script>
             fitIt('[src*="youtube.com"], [src*="player.vimeo.com"]');
         </script>
@@ -57,7 +57,8 @@
                 languages: ['js','html']
             });
             hljs.initHighlightingOnLoad();
-
+        </script>
+        <script>
             [].slice.call(document.querySelectorAll('.async-demo__btn')).forEach(function (btn) {
                 btn.addEventListener('click', function (clickEvt) {
 
@@ -67,10 +68,11 @@
                     i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
                     container.appendChild(i);
                     container.removeChild(clickEvt.target);
-                });  
+                });
             })
-
-            fitIt('object embed');
+        </script>
+        <script>
+            fitIt('embed');
         </script>
         <script type='text/javascript' id="__bs_script__">//<![CDATA[
     document.write("<script async src='//HOST:3000/browser-sync/browser-sync-client.1.7.0.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));

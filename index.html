@@ -44,78 +44,86 @@
                 font-size: 2em;
             }
         </style>
-        <script src="fitit.js"></script>
+        <script src="dist/fitit.js"></script>
         <script>
             fitIt('[src*="youtube.com"], [src*="player.vimeo.com"]');
         </script>
     </head>
     <body>
-        <h1 id="fitit">fitIt</h1>
-<p>A dependancy free, utra-slim tool for fluid width video (and other) embeds.</p>
-<h2 id="usage">Usage</h2>
-<pre><code>fitIt(&lt;selector&gt;)
-</code></pre><p>All elements that match the <code>selector</code> will be made responsive and full width within it&#39;s container...</p>
-<pre><code>fitIt(&#39;[src*=&quot;youtube.com&quot;]&#39;);
-</code></pre><figure class="async-demo demo">
+        <p>#fitIt
+A dependancy free, utra-slim tool for fluid width video (and other) embeds.</p>
+<p>##Usage</p>
+<pre><code class="lang-javascript">    fitIt(&lt;selector&gt;)
+</code></pre>
+<p>All elements that match the <code>selector</code> will be made responsive and full width within it&#39;s container...</p>
+<pre><code class="lang-javascript">    fitIt(&#39;[src*=&quot;youtube.com&quot;]&#39;);
+</code></pre>
+<figure class="async-demo demo">
 <iframe width="560" height="315" src="//www.youtube.com/embed/MG9-y2t2ZLI" frameborder="0" allowfullscreen></iframe>
 </figure>
 
 <hr>
 <p>Including any asynchronously loaded nodes</p>
-<pre><code>fitIt(&#39;[src*=&quot;youtube.com&quot;]&#39;);
+<pre><code class="lang-javascript">    fitIt(&#39;[src*=&quot;youtube.com&quot;]&#39;);
 
-document.querySelector(&#39;.async-demo\_\_btn&#39;).addEventListener(&#39;click&#39;, function (clickEvt) {
+    document.querySelector(&#39;.async-demo__btn&#39;).addEventListener(&#39;click&#39;, function (clickEvt) {
 
-    var container = clickEvt.target.parentElement,
-        i = document.createElement(&#39;iframe&#39;);
+        var container = clickEvt.target.parentElement,
+            i = document.createElement(&#39;iframe&#39;);
 
-    i.src = &#39;//www.youtube.com/embed/ImlzsxHbTRQ&#39;;
-    container.appendChild(i);
-    container.removeChild(clickEvt.target);
-});
-</code></pre><figure class="async-demo demo">
+        i.src = &#39;//www.youtube.com/embed/ImlzsxHbTRQ&#39;;
+        container.appendChild(i);
+        container.removeChild(clickEvt.target);
+    });
+</code></pre>
+<figure class="async-demo demo">
 <button class="async-demo__btn">Load Video</button>
 </figure>
 
 <hr>
 <p>Multiple selectors can be used...</p>
-<pre><code>fitIt(&#39;[src*=&quot;youtube.com&quot;], [src*=&quot;player.vimeo.com&quot;]&#39;);
-</code></pre><figure class="async-demo demo">
+<pre><code class="lang-javascript">    fitIt(&#39;[src*=&quot;youtube.com&quot;], [src*=&quot;player.vimeo.com&quot;]&#39;);
+</code></pre>
+<figure class="async-demo demo">
 <iframe src="//player.vimeo.com/video/1084537" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </figure>
 
 <hr>
 <p>Even multiple calls.</p>
-<pre><code>fitIt(&#39;[src*=&quot;youtube.com&quot;]&#39;);
-fitIt(&#39;object embed&#39;); 
-</code></pre><figure class="async-demo demo">
+<pre><code class="lang-javascript">    fitIt(&#39;[src*=&quot;youtube.com&quot;]&#39;);
+    fitIt(&#39;object embed&#39;);
+</code></pre>
+<figure class="async-demo demo">
 <object id="flashObj" width="480" height="270" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=3867093869001&linkBaseURL=https%3A%2F%2Fwww.lds.org%2Fmedia-library%2Fvideo%2F2014-10-003-fashion-faith%3Fcategory%3Dsocial-media-sharable-videos%26lang%3Deng&playerID=710849472001&playerKey=AQ~~,AAAApYNoccE~,xDmRWfqDlPhbhwoOkZ1F_TSoe20nAtRQ&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" bgcolor="#FFFFFF" flashVars="videoId=3867093869001&linkBaseURL=https%3A%2F%2Fwww.lds.org%2Fmedia-library%2Fvideo%2F2014-10-003-fashion-faith%3Fcategory%3Dsocial-media-sharable-videos%26lang%3Deng&playerID=710849472001&playerKey=AQ~~,AAAApYNoccE~,xDmRWfqDlPhbhwoOkZ1F_TSoe20nAtRQ&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="480" height="270" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
 </figure>
 
 <hr>
-<p>Before the iframe...</p>
-<pre><code>&lt;script&gt;
-fitIt(&#39;[src*=&quot;youtube.com&quot;], [src*=&quot;player.vimeo.com&quot;]&#39;);
-&lt;/script&gt;
+<p>Before the element...</p>
+<pre><code class="lang-html">    &lt;script&gt;
+    fitIt(&#39;[src*=&quot;youtube.com&quot;], [src*=&quot;player.vimeo.com&quot;]&#39;);
+    &lt;/script&gt;
 
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/MG9-y2t2ZLI&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-</code></pre><hr>
-<p>or after the iframe...</p>
-<pre><code>&lt;object data=&quot;&quot; type=&quot;&quot;&gt;
-    &lt;embed src=&quot;&quot; type=&quot;&quot;&gt;&lt;/embed&gt;
-&lt;/object&gt;
-
-&lt;script&gt;
-fitIt(&#39;object embed&#39;);
-&lt;/script&gt;
+    &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/MG9-y2t2ZLI&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </code></pre>
+<hr>
+<p>or after it...</p>
+<pre><code class="lang-html">    &lt;object data=&quot;&quot; type=&quot;&quot;&gt;
+        &lt;embed src=&quot;&quot; type=&quot;&quot;&gt;&lt;/embed&gt;
+    &lt;/object&gt;
+
+    &lt;script&gt;
+    fitIt(&#39;object embed&#39;);
+    &lt;/script&gt;
+</code></pre>
+
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
         <script>
             hljs.configure({
                 languages: ['js','html']
             });
             hljs.initHighlightingOnLoad();
-
+        </script>
+        <script>
             [].slice.call(document.querySelectorAll('.async-demo__btn')).forEach(function (btn) {
                 btn.addEventListener('click', function (clickEvt) {
 
@@ -125,10 +133,11 @@ fitIt(&#39;object embed&#39;);
                     i.src = '//www.youtube.com/embed/ImlzsxHbTRQ';
                     container.appendChild(i);
                     container.removeChild(clickEvt.target);
-                });  
+                });
             })
-
-            fitIt('object embed');
+        </script>
+        <script>
+            fitIt('embed');
         </script>
         <script type='text/javascript' id="__bs_script__">//<![CDATA[
     document.write("<script async src='//HOST:3000/browser-sync/browser-sync-client.1.7.0.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
