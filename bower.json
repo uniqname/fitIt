@@ -1,6 +1,6 @@
 {
   "name": "fitit",
-  "main": "fitit.js",
+  "main": "./dist/fitit.min.js",
   "version": "1.0.0",
   "authors": [
     "Cory Brown <oh.wise.man@gmail.com>"

@@ -2,7 +2,7 @@
   "name": "fitit",
   "version": "1.1.1",
   "description": "Tool for making iframes, objects, etc. responsive. AKA FitVids without the jQuery dependency",
-  "main": "fitit.js",
+  "main": "./dist/fitit.min.js",
   "scripts": {
     "test": "test"
   },
